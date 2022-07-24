@@ -1,7 +1,8 @@
 import 'package:core/navigation/i_navigation_handler.dart';
 import 'package:core/navigation/i_route_manager.dart';
-import 'package:core/navigation/navigation_type.dart';
 import 'package:flutter/material.dart';
+
+part 'navigation_type.dart';
 
 class NavigationManager {
   static late INavigationHandler _navigationHandler;

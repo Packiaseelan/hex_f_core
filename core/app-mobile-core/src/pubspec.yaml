@@ -16,6 +16,8 @@ dependencies:
   get: ^4.6.1
   flutter_riverpod: ^1.0.3
 
+  local_auth: ^2.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

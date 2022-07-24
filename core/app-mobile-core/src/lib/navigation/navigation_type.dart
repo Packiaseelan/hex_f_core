@@ -1,3 +1,5 @@
+part of 'navigation_manager.dart';
+
 enum NavigationType {
   Push,
   Replace,
