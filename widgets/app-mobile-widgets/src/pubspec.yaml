@@ -1,6 +1,7 @@
 name: widget_library
 description: A new Flutter package project.
 version: 0.0.1
+publish_to: none
 homepage:
 
 environment:
@@ -11,10 +12,18 @@ dependencies:
   flutter:
     sdk: flutter
 
+  core:
+    path: ../../../core/app-mobile-core/src/
+  
+  json_annotation: ^4.6.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  
+  build_runner: ^2.1.1
+  json_serializable: ^6.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
