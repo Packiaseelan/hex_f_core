@@ -12,12 +12,18 @@ class _Constants {
   static const landingRoute = '${ModuleIdentifiers.global}-${GlobalRoutes.landing}';
 
   static const splashDuration = 2;
+  static const title = 'Example App';
 }
 
 class SplashCoordinator extends BaseCoordinator<SplashState> {
   final ISplashNavigationHandler _navigationHandler;
 
-  SplashCoordinator(this._navigationHandler) : super(SplashState());
+  SplashCoordinator(this._navigationHandler)
+      : super(
+          SplashState(
+            title: _Constants.title,
+          ),
+        );
 
   void initialize() {
     Timer(const Duration(seconds: _Constants.splashDuration), _navigateToLanding);

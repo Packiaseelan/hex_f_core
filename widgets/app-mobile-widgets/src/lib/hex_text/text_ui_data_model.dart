@@ -7,5 +7,5 @@ class TextUIDataModel {
   final TextAlign? textAlign;
   final int? maxLines;
 
-  TextUIDataModel(this.text, this.styleVariant, this.overflow, this.textAlign, this.maxLines);
+  TextUIDataModel(this.text, {this.styleVariant, this.overflow, this.textAlign, this.maxLines});
 }

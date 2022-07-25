@@ -1,6 +1,10 @@
 import 'package:core/base_classes/base_view.dart';
 import 'package:example_mobile_app/features/splash/coordinator/splash_coordinator.dart';
+import 'package:example_mobile_app/features/splash/view/widgets/splash_view_base_attribute.dart';
+import 'package:example_mobile_app/features/splash/view/widgets/splash_view_base_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:widget_library/hex_text/hex_text.dart';
+import 'package:widget_library/scaffold/hex_scaffold.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -14,6 +18,14 @@ class SplashView extends StatelessWidget {
   }
 
   Widget _builder(BuildContext context, SplashState state, SplashCoordinator coordinator) {
-    return Container();
+    return HexScaffold(
+      body: SplashViewBaseWidget(attribute: _createAttribute(state)),
+    );
+  }
+
+  SplashViewBaseAttribute _createAttribute(SplashState state) {
+    return SplashViewBaseAttribute(
+      title: TextUIDataModel(state.title, styleVariant: HexTextStyleVariant.headline4),
+    );
   }
 }
