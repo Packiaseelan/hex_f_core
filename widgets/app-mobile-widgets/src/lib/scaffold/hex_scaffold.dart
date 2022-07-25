@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:widget_library/app_bar/hex_app_bar.dart';
 import 'package:widget_library/theme/hex_theme.dart';
 
 enum HexBrightness { dark, light }
 
 class HexScaffold extends StatelessWidget {
   final String? themeName;
+  final HexAppBarAttributes? appBarAttributes;
   final HexBrightness themeBrightness;
   final PreferredSizeWidget? Function(BuildContext)? appBarBuilder;
   final bool resizeToAvoidBottomInset;
@@ -17,6 +19,7 @@ class HexScaffold extends StatelessWidget {
   const HexScaffold({
     Key? key,
     this.themeName,
+    this.appBarAttributes,
     this.appBarBuilder,
     this.resizeToAvoidBottomInset = true,
     this.extendedBodyClip = false,
@@ -43,7 +46,7 @@ class HexScaffold extends StatelessWidget {
         ),
         child: Scaffold(
           resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-          // appBar: _buildAppBar(context, theme),
+          appBar: _buildAppBar(context, theme),
           body: body,
           bottomNavigationBar: bottomNavigationBar,
           extendBody: extendedBodyClip,
@@ -51,5 +54,17 @@ class HexScaffold extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  PreferredSizeWidget? _buildAppBar(BuildContext context, ThemeData theme) {
+    if (appBarBuilder != null) {
+      return appBarBuilder!(context);
+    }
+
+    if (appBarAttributes != null) {
+      return hexDefaultAppBar(context, appBarAttributes!, theme);
+    }
+
+    return null;
   }
 }
