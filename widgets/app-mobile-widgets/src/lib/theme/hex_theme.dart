@@ -138,6 +138,7 @@ class HexTextThemeData {
   HexStyleData? bodyText1;
   HexStyleData? bodyText2;
   HexStyleData? caption;
+  HexStyleData? overline;
 
   HexTextThemeData({
     this.headline1,
@@ -151,6 +152,7 @@ class HexTextThemeData {
     this.bodyText1,
     this.bodyText2,
     this.caption,
+    this.overline,
   });
 
   factory HexTextThemeData.fromJson(Map<String, dynamic> json) => _$HexTextThemeDataFromJson(json);
@@ -169,7 +171,8 @@ class HexInputDecorationThemeData {
     this.labelStyle,
   });
 
-  factory HexInputDecorationThemeData.fromJson(Map<String, dynamic> json) => _$HexInputDecorationThemeDataFromJson(json);
+  factory HexInputDecorationThemeData.fromJson(Map<String, dynamic> json) =>
+      _$HexInputDecorationThemeDataFromJson(json);
   Map<String, dynamic> toJson() => _$HexInputDecorationThemeDataToJson(this);
 }
 
@@ -426,9 +429,9 @@ class HexTheme {
             : defaultTheme?.appBarTheme.actionsIconTheme,
         titleTextStyle: _buildTextStyle(screenThemeData?.appBarTheme?.titleTextStyle) ??
             defaultThemeData?.appBarTheme.titleTextStyle,
-        textTheme: _buildTextTheme(
+        toolbarTextStyle: _buildTextTheme(
           screenThemeData?.appBarTheme?.textThemeData,
-        ),
+        ).bodyText1,
       ),
       cardTheme: CardTheme(
         color: screenThemeData?.cardTheme?.color?.toColor() ?? defaultThemeData?.cardTheme.color,

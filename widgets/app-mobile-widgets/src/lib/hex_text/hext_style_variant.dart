@@ -12,4 +12,5 @@ enum HexTextStyleVariant {
   subtitle2,
   bodyText2,
   caption,
+  overline,
 }

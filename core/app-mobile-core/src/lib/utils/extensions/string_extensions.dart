@@ -20,7 +20,7 @@ extension StringExtensions on String? {
     for (var i = 0; i < splitName.length; i++) {
       if (splitName[i].isEmpty) continue;
       if (result.isNotEmpty) {
-        result = result + ' ';
+        result = '$result ';
       }
       result = result + splitName[i].capitalize();
     }

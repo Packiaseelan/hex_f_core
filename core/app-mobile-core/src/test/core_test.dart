@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:core/core.dart';
 import 'package:core/core_platform_interface.dart';
 import 'package:core/core_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
@@ -17,13 +16,5 @@ void main() {
 
   test('$MethodChannelCore is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelCore>());
-  });
-
-  test('getPlatformVersion', () async {
-    Core corePlugin = Core();
-    MockCorePlatform fakePlatform = MockCorePlatform();
-    CorePlatform.instance = fakePlatform;
-  
-    expect(await corePlugin.getPlatformVersion(), '42');
   });
 }

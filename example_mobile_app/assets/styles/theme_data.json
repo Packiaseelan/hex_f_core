@@ -1,0 +1,189 @@
+{
+    "colors": {
+      "primary": "0xFFFFFFFF",
+      "secondary": "0xFF0F1A38",
+      "tertiary": "0xFF5500F9",
+      "quaternary": "0xFFF7D7D0",
+      "quinary": "0xFFF9D100",
+      "senary": "0xFFF4F4FA",
+      "septenary": "0xFFF90069",
+      "octonary": "0xFF34CE97",
+      "nonary": "0xFFDFE0E4",
+      "denary": "0xFFEFEEE8",
+      "infoIcon": "0xFF5F667A",
+      "panelColorPrimary": "0xFFF5F6F7",
+      "panelColorSecondary": "0xFFF4F4F0",
+      "panelColorTertiary": "0xFFFCF2EF"
+    },
+    "screens": [
+      {
+        "screenName": "default",
+        "primaryColor": "0xFF0F1A38",
+        "primaryColorDark": "0xFF0F1A38",
+        "primaryColorLight": "0xFFF7D7D0",
+        "splashColor": "0xFFFCFCFA",
+        "scaffoldBackgroundColor": "0xFFFCFCFA",
+        "backgroundColor": "0xFFFFFFFF",
+        "errorColor": "0xFFF90069",
+        "bottomAppBarColor": "0xFFFFFFFF",
+        "toggleableActiveColor": "0xFF5500F9",
+        "dividerColor": "0xFFE7E8EB",
+        "highlightTextColor": "0xFF5500F9",
+        "textFieldBackgroundColor": "0xFFF5F6F7",
+        "actionButtonIconColor": "0xFFFFFFFF",
+        "midNightTintColor": "0xFF374059",
+        "segmentedThemeData": {
+          "color": "0xFFF5F6F7",
+          "textColor": "0xFF0F1A38"
+        },
+        "iconTheme": {
+          "color": "0xFF0F1A38"
+        },
+        "appBarTheme": {
+          "foregroundColor": "0xFF0F1A38",
+          "backgroundColor": "0xFFFFFFFF",
+          "iconTheme": {
+            "color": "0xFF0C142B"
+          },
+          "titleTextStyle": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueMd",
+            "fontSize": 17
+          },
+          "textTheme": {
+            "bodyText1": {
+              "color": "0xFF5500F9",
+              "fontFamily": "AktivGrotesqueMd",
+              "fontSize": 14
+            }
+          }
+        },
+        "cardTheme": {
+          "color": "0x00000000",
+          "shadowColor": "0x00000000",
+          "elevation": 0.0
+        },
+        "textTheme": {
+          "headline1": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 72
+          },
+          "headline2": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 60
+          },
+          "headline3": {
+            "color": "0xFFFFFFFF",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 48
+          },
+          "headline4": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 34
+          },
+          "headline5": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 24
+          },
+          "headline6": {
+            "color": "0xFF5500F9",
+            "fontFamily": "AktivGrotesqueMd",
+            "fontSize": 20
+          },
+          "subtitle1": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 16
+          },
+          "subtitle2": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueMd",
+            "fontSize": 14
+          },
+          "bodyText1": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 16
+          },
+          "bodyText2": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueMd",
+            "fontSize": 14
+          },
+          "caption": {
+            "color": "0xFFFFFFFF",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 12
+          },
+          "overline": {
+            "color": "0xFFFFFFFF",
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 10
+          }
+        },
+        "sliderTheme": {
+          "activeTrackColor": "0xFFEFEEE8",
+          "inactiveTrackColor": "0xFFFAF9F7"
+        },
+        "elevatedButtonTheme": {
+          "color": "0xFF0F1A38",
+          "fontFamily": "AktivGrotesqueMd",
+          "fontSize": 14,
+          "textColor": "0xFFFFFFFF",
+          "minimumSize": 56,
+          "borderRadius": 10
+        },
+        "textButtonTheme": {
+          "color": "0xFF5500F9",
+          "fontFamily": "AktivGrotesqueMd",
+          "fontSize": 14,
+          "textColor": "0xFFFFFFFF"
+        },
+        "textSelectionTheme": {
+          "color": "0xFF5500F9"
+        },
+        "inputDecorationTheme": {
+          "hintStyle": {
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 14,
+            "color": "0xFF0F1A38",
+            "opacity": 0.64
+          },
+          "errorStyle": {
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 11,
+            "color": "0xFFF90069"
+          },
+          "labelStyle": {
+            "fontFamily": "AktivGrotesqueRg",
+            "fontSize": 28,
+            "color": "0xFF0F1A38",
+            "opacity": 0.64
+          }
+        }
+      },
+      {
+        "screenName": "overlay_error_screen",
+        "backgroundColor": "0xFF5500F9",
+        "iconTheme": {
+          "color": "0xFFF7D7D0"
+        },
+        "textTheme": {
+          "headline6": {
+            "color": "0xFFFAF9F7",
+            "fontFamily": "AktivGrotesqueMd",
+            "fontSize": 14
+          },
+          "headline2": {
+            "color": "0xFF0F1A38",
+            "fontFamily": "AktivGrotesqueMd",
+            "fontSize": 14
+          }
+        }
+      }
+    ]
+  }

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 (cd core/app-mobile-core/src && flutter clean)
 (cd core/app-mobile-core/src && rm pubspec.lock)
 (cd core/app-mobile-core/src/example && flutter clean)

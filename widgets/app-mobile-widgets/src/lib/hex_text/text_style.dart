@@ -38,6 +38,9 @@ TextStyle buildTextStyle({
     case HexTextStyleVariant.caption:
       return Theme.of(context).textTheme.caption!.copyWith(height: lineHeight);
 
+    case HexTextStyleVariant.overline:
+      return Theme.of(context).textTheme.overline!.copyWith(height: lineHeight);
+      
     default:
       return Theme.of(context).textTheme.bodyText1!.copyWith(height: lineHeight);
   }
