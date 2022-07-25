@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 64 64" version="1.1">
+  <g id="g3690">
+    <path id="rect2822" fill="#e0c6a4" d="m7 9h51v51h-51v-51z"/>
+    <path id="rect3608" fill="#a8896f" d="m9 5h47v4h-47v-4z"/>
+    <path id="path3610" fill="#f5d6b0" d="m9 9v-4l5 4h-5z"/>
+    <path id="path3612" fill="#f5d6b0" d="m56 9v-4l-5 4h5z"/>
+    <path id="path3616" d="m7.5053 60.5h49.989" stroke="#a8896f" stroke-linecap="square" stroke-width="1.0051" fill="none"/>
+    <g id="g3680" transform="translate(0,1)">
+      <g id="g3637" transform="translate(0,-2)">
+        <path id="rect2853" d="m41 23v2h-17v-2h17z" fill="#a8896f"/>
+        <path id="rect2858" fill="#a8896f" d="m22 14h2v2h-2v-2z"/>
+        <path id="path2856" d="m22 15h2v10l-2-2v-8z" fill="#f5d6b0"/>
+        <path id="path2861" fill="#a8896f" d="m41 14h2v2h-2v-2z"/>
+        <path id="path2863" d="m41 15h2v8l-2 2v-10z" fill="#f5d6b0"/>
+      </g>
+    </g>
+    <path id="path3678" d="m24 24 34 34v-31l-15-14v9l-2 2h-17z" fill="#400000" fill-opacity=".13725"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>shopping bag</dc:title>
+        <dc:date>2013-08-31T14:29:52</dc:date>
+        <dc:description>bag for shopping</dc:description>
+        <dc:source>http://openclipart.org/detail/182771/shopping-by-crisg-182771</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>crisg</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>bag</rdf:li>
+            <rdf:li>boutique</rdf:li>
+            <rdf:li>carrier</rdf:li>
+            <rdf:li>cartone</rdf:li>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>grocery</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>object</rdf:li>
+            <rdf:li>paper</rdf:li>
+            <rdf:li>paper bag</rdf:li>
+            <rdf:li>shop</rdf:li>
+            <rdf:li>shopping</rdf:li>
+            <rdf:li>store</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

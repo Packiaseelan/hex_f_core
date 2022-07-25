@@ -1,6 +1,7 @@
 import 'package:example_mobile_app/features/landing/view/widgets/landing_view_base_attribute.dart';
 import 'package:flutter/material.dart';
 import 'package:widget_library/hex_text/hex_text.dart';
+import 'package:widget_library/image/hex_image_widget.dart';
 
 class LandingViewBaseWidget extends StatelessWidget {
   final LandingViewBaseAttribute attribute;
@@ -9,6 +10,13 @@ class LandingViewBaseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: HexText(text: attribute.title));
+    return Center(child: Column(
+      children: [
+        HexImage(attribute.icon),
+        HexText(text: attribute.title),
+        HexImage(attribute.image),
+        HexImage(attribute.networkImage),
+      ],
+    ));
   }
 }

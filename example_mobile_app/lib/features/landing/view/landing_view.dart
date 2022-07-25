@@ -5,6 +5,7 @@ import 'package:example_mobile_app/features/landing/view/widgets/landing_view_ba
 import 'package:flutter/material.dart';
 import 'package:widget_library/app_bar/hex_app_bar.dart';
 import 'package:widget_library/hex_text/hex_text.dart';
+import 'package:widget_library/image/hex_image_widget.dart';
 import 'package:widget_library/scaffold/hex_scaffold.dart';
 
 class LandingView extends StatelessWidget {
@@ -22,7 +23,7 @@ class LandingView extends StatelessWidget {
     return HexScaffold(
       // appBarAttributes: _createAppBar(state),
       appBarBuilder: _appBarBuilder,
-      body: LandingViewBaseWidget(attribute: _createAttribute()),
+      body: LandingViewBaseWidget(attribute: _createAttribute(state)),
     );
   }
 
@@ -41,7 +42,12 @@ class LandingView extends StatelessWidget {
     return AppBar();
   }
 
-  LandingViewBaseAttribute _createAttribute() {
-    return LandingViewBaseAttribute(title: TextUIDataModel('title'));
+  LandingViewBaseAttribute _createAttribute(LandingState state) {
+    return LandingViewBaseAttribute(
+      title: TextUIDataModel('title'),
+      icon: HexImageModel(imagePath: state.iconPath),
+      image: HexImageModel(imagePath: state.bgImage),
+      networkImage: HexImageModel.network(imagePath: state.networkImage),
+    );
   }
 }
