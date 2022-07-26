@@ -1,0 +1,54 @@
+{
+    "baseURL": "https://gorest.co.in/public/v2/",
+    "restEnvironments": [
+      {
+        "name": "default",
+        "host": "",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8",
+          "x-adq-correlation-id": "c-1234"
+        }
+      },
+      {
+        "name": "fetchUsers",
+        "host": "users",
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 065455dc0cc7feb7fd19b79c0c388a48ee12f9f58ea5e59e4e12698ee9808ee1"
+        }
+      },
+      {
+        "name": "postUsers",
+        "host": "users",
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 065455dc0cc7feb7fd19b79c0c388a48ee12f9f58ea5e59e4e12698ee9808ee1"
+        }
+      },
+      {
+        "name": "uploadFile",
+        "host": "https://v2.convertapi.com/upload",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+  
+    ],
+    "gqlEnvironments": [
+      {
+        "name": "default",
+        "host": "https://graphql-weather-api.herokuapp.com/",
+        "headers": {}
+      }
+    ],
+    "gqlMappingOverrides": {
+      "login": "login",
+      "fetchWeather": "fetch_weather",
+      "settingsGetProfile": "mock"
+    },
+    "headers": {
+      "x-channel": "x-channel",
+      "Ocp-Apim-Subscription-Key": "nAQ0h4xMhtsDR9PJMslMdNCTtiywVoTKSSRIZxoRAX1RWG6v7UDdyPZn0C2Trsbr"
+    },
+    "useMockNetworkClient": false
+  }

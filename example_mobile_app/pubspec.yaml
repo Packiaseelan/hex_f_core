@@ -44,6 +44,9 @@ dependencies:
   widget_library:
     path: ../widgets/app-mobile-widgets/src
 
+  network_manager:
+    path: ../network_manager/app-mobile-networkmanager/src
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -71,7 +74,8 @@ flutter:
     - assets/styles/
     - assets/icons/
     - assets/images/
-  #   - images/a_dot_ham.jpeg
+    - assets/configuration/
+    - assets/network-mocks/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:core/ioc/di_container.dart';
 import 'package:core/navigation/navigation_manager.dart';
+import 'package:core/storage/i_storage_service.dart';
+import 'package:network_manager/network_manager.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
 import 'package:widget_library/theme/hex_theme.dart';
 
@@ -17,6 +19,7 @@ class GlobalAppInitializer {
     NavigationManager.registerRouteManager(ModuleIdentifiers.global, GlobalRouteManager());
 
     _initializeFeatureModules();
+    _initializeEnvironmentBasedDependencies();
 
     return Future.value(theme.defaultTheme);
   }
@@ -31,5 +34,10 @@ class GlobalAppInitializer {
     DIContainer.container.registerFactory(
       (container) => LandingCoordinator(),
     );
+  }
+
+  void _initializeEnvironmentBasedDependencies() async {
+    final storageService = DIContainer.container.resolve<IStorageService>();
+    await NetworkManager.registerDependencies(secureStorage: storageService, accessTokenKey: '');
   }
 }

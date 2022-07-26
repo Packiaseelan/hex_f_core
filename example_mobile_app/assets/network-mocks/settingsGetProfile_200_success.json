@@ -1,0 +1,16 @@
+{
+    "loginId": "test",
+    "firstName": "Atif",
+    "lastName": "Rauf",
+    "dateOfBirth": "2012-02-27",
+    "address": {
+      "addressLineOne": "Verdun Tower",
+      "street": "7775 King Fahd Rd",
+      "postcode": "12212",
+      "city": "Riyadh",
+      "country": "Kingdom of Saudi Arabia"
+    },
+    "communicationChannel": "Email",
+    "gender": "Male",
+    "maritalStatus": "Married"
+}

@@ -2,6 +2,8 @@ library core;
 
 import 'dart:async';
 
+import 'package:core/storage/i_storage_service.dart';
+import 'package:core/storage/secure_storage/secure_storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -29,6 +31,10 @@ class Core {
         WidgetsFlutterBinding.ensureInitialized();
 
         NavigationManager(navigationHandler);
+
+        // Register Secure Storage
+        final secureStorageService = SecureStorageService();
+        DIContainer.container.registerSingleton<IStorageService>((container) => secureStorageService);
 
         await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
