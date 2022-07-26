@@ -1,4 +1,5 @@
 import 'package:core/base_classes/base_coordinator.dart';
+import 'package:example_mobile_app/features/landing/data_provider/offers_data_provider.dart';
 
 part '../state/landing_state.dart';
 
@@ -10,8 +11,11 @@ class _Constants {
 }
 
 class LandingCoordinator extends BaseCoordinator<LandingState> {
-  LandingCoordinator()
-      : super(
+  final IOfferDataProvider _offerDataProvider;
+
+  LandingCoordinator(
+    this._offerDataProvider,
+  ) : super(
           LandingState(
             pageTitle: 'Landing Screen',
             iconPath: _Constants.iconPath,
@@ -20,5 +24,34 @@ class LandingCoordinator extends BaseCoordinator<LandingState> {
           ),
         );
 
-  void initialize() {}
+  void initialize() {
+    _getofferData();
+    _getNumbers();
+    _getCategories();
+  }
+
+  void _getofferData() {
+    _offerDataProvider.getOffersData().then((value) {
+      final offers = value
+          .map((e) => OfferBannerState(
+                title: e.title,
+                description: e.description,
+                iconPath: e.iconPath,
+              ))
+          .toList();
+      state = state.copyWith(offerBanners: offers);
+    });
+  }
+
+  void _getNumbers() {
+    _offerDataProvider.getNumbers().then((value) {
+      state = state.copyWith(nos: value);
+    });
+  }
+
+  void _getCategories() {
+    _offerDataProvider.getCategories().then((value) {
+      state = state.copyWith(categories: value);
+    });
+  }
 }

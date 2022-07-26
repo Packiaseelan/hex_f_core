@@ -1,3 +1,4 @@
+import 'package:example_mobile_app/features/landing/data_provider/offers_data_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:core/ioc/di_container.dart';
@@ -19,12 +20,11 @@ class GlobalAppInitializer {
 
     NavigationManager.registerRouteManager(ModuleIdentifiers.global, GlobalRouteManager());
 
+    final storageService = DIContainer.container.resolve<IStorageService>();
 
-      final storageService = DIContainer.container.resolve<IStorageService>();
-
-      TaskManagerModule.registerDependencies(
-        secureStorageService: storageService,
-      );
+    TaskManagerModule.registerDependencies(
+      secureStorageService: storageService,
+    );
 
     _initializeFeatureModules();
     _initializeEnvironmentBasedDependencies();
@@ -40,7 +40,9 @@ class GlobalAppInitializer {
     );
 
     DIContainer.container.registerFactory(
-      (container) => LandingCoordinator(),
+      (container) => LandingCoordinator(
+        OffersDataProvider(),
+      ),
     );
   }
 

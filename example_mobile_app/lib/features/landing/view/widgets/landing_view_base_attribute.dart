@@ -6,11 +6,15 @@ class LandingViewBaseAttribute {
   final HexImageModel icon;
   final HexImageModel image;
   final HexImageModel networkImage;
+  final List<int> nos;
+  final List<String> categories;
 
   LandingViewBaseAttribute({
     required this.title,
     required this.icon,
     required this.image,
     required this.networkImage,
+    this.nos = const [],
+    this.categories = const []
   });
 }

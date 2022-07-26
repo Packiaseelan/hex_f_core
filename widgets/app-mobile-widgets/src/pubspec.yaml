@@ -17,6 +17,7 @@ dependencies:
   
   json_annotation: ^4.6.0
   flutter_svg: ^1.1.1+1
+  carousel_slider: ^4.1.1
 
 dev_dependencies:
   flutter_test:

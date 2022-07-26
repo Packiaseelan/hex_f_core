@@ -8,5 +8,8 @@
 (cd widgets/app-mobile-widgets/src && flutter clean)
 (cd widgets/app-mobile-widgets/src && rm pubspec.lock)
 
-(cd network_manager/app-mobile-network_manager/src && flutter clean)
-(cd network_manager/app-mobile-network_manager/src && rm pubspec.lock)
+(cd network_manager/app-mobile-networkmanager/src && flutter clean)
+(cd network_manager/app-mobile-networkmanager/src && rm pubspec.lock)
+
+(cd task_manager/app-mobile-taskmanager/src && flutter clean)
+(cd task_manager/app-mobile-taskmanager/src && rm pubspec.lock)

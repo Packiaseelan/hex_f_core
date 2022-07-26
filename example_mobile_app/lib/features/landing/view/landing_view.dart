@@ -42,7 +42,9 @@ class LandingView extends StatelessWidget {
 
   // Custom Appbar
   PreferredSizeWidget? _appBarBuilder(BuildContext context) {
-    return AppBar();
+    return AppBar(
+      title: Text('App bar'),
+    );
   }
 
   LandingViewBaseAttribute _createAttribute(LandingState state) {
@@ -51,6 +53,8 @@ class LandingView extends StatelessWidget {
       icon: HexImageModel(imagePath: state.iconPath),
       image: HexImageModel(imagePath: state.bgImage),
       networkImage: HexImageModel.network(imagePath: state.networkImage),
+      nos: state.nos,
+      categories: state.categories,
     );
   }
 }
