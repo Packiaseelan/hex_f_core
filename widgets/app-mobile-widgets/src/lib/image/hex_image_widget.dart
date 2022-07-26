@@ -28,7 +28,7 @@ class HexImageModel {
   HexImageModel.asset({
     required this.imagePath,
     this.width,
-    this.padding = const EdgeInsets.all(0),
+    this.padding = EdgeInsets.zero,
     this.height,
     this.color,
     this.boxFit,
@@ -38,7 +38,7 @@ class HexImageModel {
   HexImageModel.network({
     required this.imagePath,
     this.width,
-    this.padding = const EdgeInsets.all(0),
+    this.padding = EdgeInsets.zero,
     this.height,
     this.color,
     this.boxFit,
@@ -125,6 +125,7 @@ class _Image extends StatelessWidget {
       height: height,
       width: width,
       fit: boxFit ?? BoxFit.fill,
+      color: color,
       loadingBuilder: (context, child, event) {
         if (event == null) {
           return child;

@@ -12,13 +12,15 @@ class LandingViewBaseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Column(
-      children: [
-        HexImage(attribute.icon),
-        HexText(text: attribute.title),
-        HexImage(attribute.image),
-        HexImage(attribute.networkImage),
-      ],
-    ));
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          HexImage(attribute.icon),
+          HexText(text: attribute.title),
+          HexImage(attribute.image),
+          HexImage(attribute.networkImage),
+        ],
+      ),
+    );
   }
 }

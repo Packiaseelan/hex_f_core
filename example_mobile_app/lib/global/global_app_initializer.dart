@@ -5,6 +5,7 @@ import 'package:core/navigation/navigation_manager.dart';
 import 'package:core/storage/i_storage_service.dart';
 import 'package:network_manager/network_manager.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
+import 'package:task_manager/task_manager_module.dart';
 import 'package:widget_library/theme/hex_theme.dart';
 
 import 'package:example_mobile_app/features/landing/coordinator/landing_coordinator.dart';
@@ -17,6 +18,13 @@ class GlobalAppInitializer {
     await theme.initialize();
 
     NavigationManager.registerRouteManager(ModuleIdentifiers.global, GlobalRouteManager());
+
+
+      final storageService = DIContainer.container.resolve<IStorageService>();
+
+      TaskManagerModule.registerDependencies(
+        secureStorageService: storageService,
+      );
 
     _initializeFeatureModules();
     _initializeEnvironmentBasedDependencies();

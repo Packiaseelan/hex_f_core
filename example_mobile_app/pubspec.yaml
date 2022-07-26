@@ -47,6 +47,9 @@ dependencies:
   network_manager:
     path: ../network_manager/app-mobile-networkmanager/src
 
+  task_manager:
+    path: ../task_manager/app-mobile-taskmanager/src
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
