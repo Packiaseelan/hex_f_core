@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'package:core/navigation/navigation_manager.dart';
 import 'package:core/utils/extensions/iterable_extensions.dart';
-import 'package:flutter/material.dart';
 import 'package:widget_library/scaffold/hex_scaffold.dart';
 
 part 'hex_app_bar_attributes.dart';

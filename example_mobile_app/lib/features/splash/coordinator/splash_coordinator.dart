@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:core/base_classes/base_coordinator.dart';
 import 'package:core/navigation/navigation_manager.dart';
-import 'package:example_mobile_app/global/route_manager/global_route_manager.dart';
 import 'package:shared_dependencies/shared_dependencies.dart';
+
+import 'package:example_mobile_app/global/route_manager/global_route_manager.dart';
 
 part '../state/splash_state.dart';
 part '../navigation_handler/splash_navigation_handler.dart';

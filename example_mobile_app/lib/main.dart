@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:core/navigation/i_navigation_handler.dart';
+
 import 'package:example_mobile_app/features/splash/view/splash_view.dart';
 import 'package:example_mobile_app/global/global_app_initializer.dart';
 

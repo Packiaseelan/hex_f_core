@@ -2,14 +2,16 @@ library core;
 
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:core/app/my_app.dart';
 import 'package:core/inactivity_watcher/inactivity_watcher.dart';
 import 'package:core/ioc/di_container.dart';
 import 'package:core/navigation/i_navigation_handler.dart';
 import 'package:core/navigation/navigation_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 typedef AppInitializer = Future<ThemeData> Function();
 

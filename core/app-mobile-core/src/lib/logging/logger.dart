@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
+import 'package:logger/logger.dart';
+
 import 'package:core/analytics/i_analytics.dart';
 import 'package:core/ioc/di_container.dart';
-import 'package:flutter/foundation.dart';
-import 'package:logger/logger.dart';
 import 'logger_level.dart';
 
 class HexLogger {

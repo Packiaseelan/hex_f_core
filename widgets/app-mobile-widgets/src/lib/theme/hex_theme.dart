@@ -1,10 +1,11 @@
 import 'dart:convert';
 
-import 'package:core/utils/extensions/string_extensions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+
 import 'package:json_annotation/json_annotation.dart';
+import 'package:core/utils/extensions/string_extensions.dart';
 
 part 'hex_theme.g.dart';
 

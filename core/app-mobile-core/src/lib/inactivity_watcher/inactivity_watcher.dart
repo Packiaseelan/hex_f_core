@@ -1,5 +1,6 @@
-import 'package:core/session_management/inactivity_service.dart';
 import 'package:flutter/widgets.dart';
+
+import 'package:core/session_management/inactivity_service.dart';
 import 'package:core/logging/logger.dart';
 
 /// Picks up the user's interaction with the screen and forwards

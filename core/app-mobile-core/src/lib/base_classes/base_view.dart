@@ -1,6 +1,8 @@
-import 'package:core/ioc/di_container.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:core/ioc/di_container.dart';
 
 class BaseView<T extends StateNotifier<S>, S> extends StatefulWidget {
   final Function(T) setupCoordinator;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/svg.dart';
 
-enum ImageFrom { local, network }
+enum ImageSource { asset, network }
 
 class HexImageModel {
   final String imagePath;
@@ -11,7 +12,7 @@ class HexImageModel {
   final Color? color;
   final BoxFit? boxFit;
   final AlignmentGeometry? alignment;
-  final ImageFrom imageFrom;
+  final ImageSource imageSource;
 
   HexImageModel({
     required this.imagePath,
@@ -21,10 +22,10 @@ class HexImageModel {
     this.color,
     this.boxFit,
     this.alignment,
-    this.imageFrom = ImageFrom.local,
+    this.imageSource = ImageSource.asset,
   });
 
-  HexImageModel.local({
+  HexImageModel.asset({
     required this.imagePath,
     this.width,
     this.padding = const EdgeInsets.all(0),
@@ -32,7 +33,7 @@ class HexImageModel {
     this.color,
     this.boxFit,
     this.alignment,
-  }) : imageFrom = ImageFrom.local;
+  }) : imageSource = ImageSource.asset;
 
   HexImageModel.network({
     required this.imagePath,
@@ -42,7 +43,7 @@ class HexImageModel {
     this.color,
     this.boxFit,
     this.alignment,
-  }) : imageFrom = ImageFrom.network;
+  }) : imageSource = ImageSource.network;
 }
 
 class HexImage extends StatelessWidget {
@@ -61,7 +62,7 @@ class HexImage extends StatelessWidget {
         color: imageModel.color,
         boxFit: imageModel.boxFit,
         alignment: imageModel.alignment,
-        imageFrom: imageModel.imageFrom,
+        imageSource: imageModel.imageSource,
       ),
     );
   }
@@ -74,7 +75,7 @@ class _Image extends StatelessWidget {
   final Color? color;
   final BoxFit? boxFit;
   final AlignmentGeometry? alignment;
-  final ImageFrom imageFrom;
+  final ImageSource imageSource;
 
   const _Image(
     this.imagePath, {
@@ -84,13 +85,13 @@ class _Image extends StatelessWidget {
     this.color,
     this.boxFit,
     this.alignment,
-    required this.imageFrom,
+    required this.imageSource,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final list = imagePath.split(':');
-    if (imageFrom == ImageFrom.network) {
+    if (imageSource == ImageSource.network) {
       return _buildNetworkImage();
     }
     return !_isSvg ? _buildImage(list) : _buildSVGImage(list);

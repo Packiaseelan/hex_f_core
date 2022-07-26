@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
+import 'package:overlay_support/overlay_support.dart';
+
 import 'package:core/app/hex_material_app.dart';
 import 'package:core/navigation/navigation_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:overlay_support/overlay_support.dart';
 
 class MyApp extends StatefulWidget {
   final Map<String, String> packages;

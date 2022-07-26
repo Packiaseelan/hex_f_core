@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'package:core/navigation/i_navigation_handler.dart';
 import 'package:core/navigation/i_route_manager.dart';
-import 'package:flutter/material.dart';
 
 part 'navigation_type.dart';
 

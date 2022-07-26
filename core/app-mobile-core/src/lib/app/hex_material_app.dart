@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get_core/src/log.dart';
 import 'package:get/get_core/src/smart_management.dart';
 import 'package:get/get_instance/src/bindings_interface.dart';
