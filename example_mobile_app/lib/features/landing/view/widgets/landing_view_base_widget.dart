@@ -1,4 +1,6 @@
+import 'package:example_mobile_app/features/landing/view/widgets/categories_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:widget_library/carousel/carousel_indicator.dart';
 
 import 'package:widget_library/hex_text/hex_text.dart';
 import 'package:widget_library/image/hex_image_widget.dart';
@@ -24,6 +26,7 @@ class LandingViewBaseWidget extends StatelessWidget {
           ),
           CarouselWidget(
             attribute: CarouselAttribute(
+              indicator: IndicatorAttribute(isOverlay: true),
               children: attribute.nos.map((i) {
                 return Builder(
                   builder: (BuildContext context) {
@@ -43,7 +46,7 @@ class LandingViewBaseWidget extends StatelessWidget {
               }).toList(),
             ),
           ),
-          Categories(categories: attribute.categories),
+          if (attribute.categories != null) CategoriesWidget(attribute: attribute.categories!),
           HexImage(attribute.icon),
           HexText(text: attribute.title),
           HexImage(attribute.image),
@@ -72,7 +75,7 @@ class Categories extends StatelessWidget {
           SizedBox(
             height: 100,
             child: ListView.builder(
-              scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
                   return Padding(

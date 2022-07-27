@@ -1,3 +1,4 @@
+import 'package:example_mobile_app/features/landing/view/widgets/categories_widget.dart';
 import 'package:widget_library/hex_text/hex_text.dart';
 import 'package:widget_library/image/hex_image_widget.dart';
 
@@ -7,7 +8,7 @@ class LandingViewBaseAttribute {
   final HexImageModel image;
   final HexImageModel networkImage;
   final List<int> nos;
-  final List<String> categories;
+  final CategoriesAttribute? categories;
 
   LandingViewBaseAttribute({
     required this.title,
@@ -15,6 +16,6 @@ class LandingViewBaseAttribute {
     required this.image,
     required this.networkImage,
     this.nos = const [],
-    this.categories = const []
+    this.categories,
   });
 }

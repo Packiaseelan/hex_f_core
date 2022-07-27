@@ -17,7 +17,7 @@ class LandingCoordinator extends BaseCoordinator<LandingState> {
     this._offerDataProvider,
   ) : super(
           LandingState(
-            pageTitle: 'Landing Screen',
+            pageTitle: 'Example App',
             iconPath: _Constants.iconPath,
             bgImage: _Constants.bgImagePath,
             networkImage: _Constants.networkImagePath,
@@ -51,7 +51,13 @@ class LandingCoordinator extends BaseCoordinator<LandingState> {
 
   void _getCategories() {
     _offerDataProvider.getCategories().then((value) {
-      state = state.copyWith(categories: value);
+      state = state.copyWith(
+        categories: CategoriesState(
+            title: 'Categories',
+            actionText: 'See All',
+            actionIcon: '',
+            categories: value.map((e) => CategoryState(title: e, image: 'image')).toList()),
+      );
     });
   }
 }
