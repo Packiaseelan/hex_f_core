@@ -30,70 +30,70 @@ class PerformanceMonitor {
     } on Exception catch (exception) {
       final exceptionMessage = exception.toString();
       // do nothing
-      HexLogger.logDebug('could not find analytics object,' + exceptionMessage);
+      HexLogger.logDebug('could not find analytics object, $exceptionMessage');
     }
   }
 
   ///logs common events names with properties
   static void track(String eventName, {Map<String, dynamic>? properties}) {
-    final _newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
+    final newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
 
     // Capture the event
-    _analytics?.logEvent(eventName, _newProperties);
+    _analytics?.logEvent(eventName, newProperties);
   }
 
   /// This function will begin capturing the time for the given
   /// event(like network calls or any other) in mixpanel[Analytics]
   /// and also sends it to AppCenter to capture the events [PerformanceMonitor]
   static void startTimedEvent(String eventName, {Map<String, dynamic>? properties}) {
-    final _newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
+    final newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
 
-    final _appendEventName = '$eventName${_Constants.startKey}';
+    final appendEventName = '$eventName${_Constants.startKey}';
     // Capture the start event also separately
-    _analytics?.logEvent(_appendEventName, _newProperties);
+    _analytics?.logEvent(appendEventName, newProperties);
 
     // Capture the timed event
-    _analytics?.logTimedEvent(eventName, _newProperties);
+    _analytics?.logTimedEvent(eventName, newProperties);
   }
 
   /// This will end capturing the time for the given
   /// event(like network calls or any other) in mixpanel[Analytics]
   /// and also sends it to AppCenter to capture the events [PerformanceMonitor]
   static void endTimedEvent(String eventName, {Map<String, dynamic>? properties}) {
-    final _newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
+    final newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
 
-    final _appendEventName = '$eventName${_Constants.endKey}';
+    final appendEventName = '$eventName${_Constants.endKey}';
     // Capture the end event separately
-    _analytics?.logEvent(_appendEventName, _newProperties);
+    _analytics?.logEvent(appendEventName, newProperties);
 
     // Capture the timed event
-    _analytics?.endTimedEvent(eventName, _newProperties);
+    _analytics?.endTimedEvent(eventName, newProperties);
   }
 
   /// This function will begin capturing the screen load time in mixpanel[Analytics]
   /// and also sends it to AppCenter to capture the events [PerformanceMonitor]
   static void startScreenLoadTimedEvent(String eventName, {Map<String, dynamic>? properties}) {
-    final _newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
+    final newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
 
-    final _appendEventName = '$eventName${_Constants.screenLaunchKey}${_Constants.startKey}';
+    final appendEventName = '$eventName${_Constants.screenLaunchKey}${_Constants.startKey}';
     // Capture the start event also separately
-    _analytics?.logEvent(_appendEventName, _newProperties);
+    _analytics?.logEvent(appendEventName, newProperties);
 
     // Capture the timed event
-    _analytics?.logTimedEvent('$eventName${_Constants.screenLaunchKey}', _newProperties);
+    _analytics?.logTimedEvent('$eventName${_Constants.screenLaunchKey}', newProperties);
   }
 
   /// This function will end capturing the screen load time in mixpanel[Analytics]
   /// and also sends it to AppCenter to capture the events [PerformanceMonitor]
   static void endScreenLoadTimedEvent(String eventName, {Map<String, dynamic>? properties}) {
-    final _newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
+    final newProperties = PerformanceMonitorExtension._analyticsProperties(properties);
 
-    final _appendEventName = '$eventName${_Constants.screenLaunchKey}${_Constants.endKey}';
+    final appendEventName = '$eventName${_Constants.screenLaunchKey}${_Constants.endKey}';
     // Capture the end event separately
-    _analytics?.logEvent(_appendEventName, _newProperties);
+    _analytics?.logEvent(appendEventName, newProperties);
 
     // Capture the timed event
-    _analytics?.endTimedEvent('$eventName${_Constants.screenLaunchKey}', _newProperties);
+    _analytics?.endTimedEvent('$eventName${_Constants.screenLaunchKey}', newProperties);
   }
 
   static void updateUserDetails(String sessionId, String userId) {

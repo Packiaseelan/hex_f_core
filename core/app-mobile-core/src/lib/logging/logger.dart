@@ -10,7 +10,7 @@ import 'logger_level.dart';
 
 class HexLogger {
   static const _appName = 'ADQ';
-  static var _logger = Logger(output: PSConsoleOutput());
+  static var _logger = Logger(output: HexConsoleOutput());
   static var logs = <String>[];
   static String? environment;
   static IAnalytics? _analytics;
@@ -39,7 +39,7 @@ class HexLogger {
         level = Level.nothing;
     }
 
-    _logger = Logger(output: PSConsoleOutput(), level: level);
+    _logger = Logger(output: HexConsoleOutput(), level: level);
   }
 
   /// Logs a the [msg] to the device's console if the device is compiled in
@@ -137,13 +137,15 @@ class HexLogger {
   }
 }
 
-class PSConsoleOutput extends LogOutput {
+class HexConsoleOutput extends LogOutput {
   @override
   void output(OutputEvent event) {
     // TODO: implement output
     HexLogger.logs.addAll(event.lines);
-    event.lines.forEach((element) {
-      print(element);
-    });
+    for (var element in event.lines) {
+      if (kDebugMode) {
+        print(element);
+      }
+    }
   }
 }

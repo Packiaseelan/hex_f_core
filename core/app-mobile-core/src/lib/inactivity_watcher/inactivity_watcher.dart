@@ -9,7 +9,7 @@ import 'package:core/logging/logger.dart';
 class InactivityWatcher extends StatefulWidget {
   final Widget child;
   final IInactivityService inactivityService;
-  InactivityWatcher({required this.inactivityService, required this.child});
+  const InactivityWatcher({Key? key, required this.inactivityService, required this.child}): super(key: key);
 
   @override
   State<StatefulWidget> createState() => _InactivityWatcherState();

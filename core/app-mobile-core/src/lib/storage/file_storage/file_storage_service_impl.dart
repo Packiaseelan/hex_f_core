@@ -8,7 +8,7 @@ import 'package:path_provider/path_provider.dart';
 ///
 /// Provides capability to CREATE, APPEND, GET & DELETE .txt files.
 class FileStorageServiceImpl implements IFileStorageService {
-  final file_directory = 'local_files';
+  final fileDirectory = 'local_files';
 
   @override
   Future<File> createFile(String fileName, {required String content}) async {
@@ -60,7 +60,7 @@ class FileStorageServiceImpl implements IFileStorageService {
   /// Throws a MissingPlatformDirectoryException if the system is unable to provide the directory.
   Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path + file_directory;
+    final path = directory.path + fileDirectory;
     await Directory(path).create();
     return path;
   }
