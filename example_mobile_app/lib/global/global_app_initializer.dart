@@ -1,4 +1,3 @@
-import 'package:example_mobile_app/features/landing/data_provider/offers_data_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:core/ioc/di_container.dart';
@@ -9,6 +8,7 @@ import 'package:shared_dependencies/shared_dependencies.dart';
 import 'package:task_manager/task_manager_module.dart';
 import 'package:widget_library/theme/hex_theme.dart';
 
+import 'package:example_mobile_app/features/images/coordinator/images_coordinator.dart';
 import 'package:example_mobile_app/features/landing/coordinator/landing_coordinator.dart';
 import 'package:example_mobile_app/features/splash/coordinator/splash_coordinator.dart';
 import 'package:example_mobile_app/global/route_manager/global_route_manager.dart';
@@ -41,8 +41,12 @@ class GlobalAppInitializer {
 
     DIContainer.container.registerFactory(
       (container) => LandingCoordinator(
-        OffersDataProvider(),
+        LandingNavigationHandler(),
       ),
+    );
+
+    DIContainer.container.registerFactory(
+      (container) => ImagesCoordinator(),
     );
   }
 

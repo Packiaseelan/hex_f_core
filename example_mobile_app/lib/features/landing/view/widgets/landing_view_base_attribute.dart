@@ -1,21 +1,11 @@
-import 'package:example_mobile_app/features/landing/view/widgets/categories_widget.dart';
-import 'package:widget_library/hex_text/hex_text.dart';
-import 'package:widget_library/image/hex_image_widget.dart';
+import 'package:example_mobile_app/features/landing/coordinator/landing_coordinator.dart';
 
 class LandingViewBaseAttribute {
-  final TextUIDataModel title;
-  final HexImageModel icon;
-  final HexImageModel image;
-  final HexImageModel networkImage;
-  final List<int> nos;
-  final CategoriesAttribute? categories;
+  final List<Menu> menu;
+  final Function(Menu) onPressed;
 
   LandingViewBaseAttribute({
-    required this.title,
-    required this.icon,
-    required this.image,
-    required this.networkImage,
-    this.nos = const [],
-    this.categories,
+    required this.menu,
+    required this.onPressed,
   });
 }

@@ -1,3 +1,4 @@
+import 'package:example_mobile_app/features/images/view/images_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:core/navigation/i_route_manager.dart';
@@ -11,6 +12,12 @@ class GlobalRouteManager extends IRouteManager {
     switch (settings.name) {
       case GlobalRoutes.landing:
         return const LandingView();
+
+      case GlobalRoutes.images:
+        return const ImagesView();
+
+      case GlobalRoutes.carousel:
+        return const ImagesView();
 
       default:
         throw Exception('Route ${settings.name} not found');

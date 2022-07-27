@@ -1,10 +1,4 @@
-import 'package:example_mobile_app/features/landing/view/widgets/categories_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:widget_library/carousel/carousel_indicator.dart';
-
-import 'package:widget_library/hex_text/hex_text.dart';
-import 'package:widget_library/image/hex_image_widget.dart';
-import 'package:widget_library/carousel/carousel_widget.dart';
 
 import 'package:example_mobile_app/features/landing/view/widgets/landing_view_base_attribute.dart';
 
@@ -16,45 +10,33 @@ class LandingViewBaseWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          HexImage(attribute.icon),
-          HexText(text: attribute.title),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextField(),
-          ),
-          CarouselWidget(
-            attribute: CarouselAttribute(
-              indicator: IndicatorAttribute(isOverlay: true),
-              children: attribute.nos.map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: const BoxDecoration(color: Colors.amber),
-                      child: Center(
-                        child: Text(
-                          'text $i',
-                          style: const TextStyle(fontSize: 16.0),
-                        ),
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ...attribute.menu
+                .map(
+                  (e) => InkWell(
+                    onTap: () => attribute.onPressed(e),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            e.name.toUpperCase(),
+                            style: Theme.of(context).textTheme.headline5,
+                          ),
+                          const Icon(Icons.chevron_right)
+                        ],
                       ),
-                    );
-                  },
-                );
-              }).toList(),
-            ),
-          ),
-          if (attribute.categories != null) CategoriesWidget(attribute: attribute.categories!),
-          HexImage(attribute.icon),
-          HexText(text: attribute.title),
-          HexImage(attribute.image),
-          HexImage(attribute.image),
-          HexImage(attribute.image),
-          HexImage(attribute.image),
-          HexImage(attribute.networkImage),
-        ],
+                    ),
+                  ),
+                )
+                .toList()
+          ],
+        ),
       ),
     );
   }

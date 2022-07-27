@@ -1,7 +1,31 @@
 import 'package:core/base_classes/base_coordinator.dart';
-import 'package:example_mobile_app/features/landing/data_provider/offers_data_provider.dart';
+import 'package:core/navigation/navigation_manager.dart';
+import 'package:shared_dependencies/shared_dependencies.dart';
 
 part '../state/landing_state.dart';
+part '../navigation_handler/landing_navigation_handler.dart';
+
+enum Menu { images, carousel }
+
+extension MenuEx on Menu {
+  String get title {
+    switch (this) {
+      case Menu.images:
+        return 'Images';
+      case Menu.carousel:
+        return 'Carousel';
+    }
+  }
+
+  String get routeName {
+    switch (this) {
+      case Menu.images:
+        return 'images';
+      case Menu.carousel:
+        return 'carousel';
+    }
+  }
+}
 
 class _Constants {
   static const iconPath = 'assets/icons/bag.svg';
@@ -11,10 +35,10 @@ class _Constants {
 }
 
 class LandingCoordinator extends BaseCoordinator<LandingState> {
-  final IOfferDataProvider _offerDataProvider;
+  final ILandingNavigationHandler _navigationHandler;
 
   LandingCoordinator(
-    this._offerDataProvider,
+    this._navigationHandler,
   ) : super(
           LandingState(
             pageTitle: 'Example App',
@@ -25,39 +49,10 @@ class LandingCoordinator extends BaseCoordinator<LandingState> {
         );
 
   void initialize() {
-    _getofferData();
-    _getNumbers();
-    _getCategories();
+    state = state.copyWith(menu: Menu.values);
   }
 
-  void _getofferData() {
-    _offerDataProvider.getOffersData().then((value) {
-      final offers = value
-          .map((e) => OfferBannerState(
-                title: e.title,
-                description: e.description,
-                iconPath: e.iconPath,
-              ))
-          .toList();
-      state = state.copyWith(offerBanners: offers);
-    });
-  }
-
-  void _getNumbers() {
-    _offerDataProvider.getNumbers().then((value) {
-      state = state.copyWith(nos: value);
-    });
-  }
-
-  void _getCategories() {
-    _offerDataProvider.getCategories().then((value) {
-      state = state.copyWith(
-        categories: CategoriesState(
-            title: 'Categories',
-            actionText: 'See All',
-            actionIcon: '',
-            categories: value.map((e) => CategoryState(title: e, image: 'image')).toList()),
-      );
-    });
+  void navigateTo(Menu menu) {
+    _navigationHandler.navigateTo(menu.routeName);
   }
 }

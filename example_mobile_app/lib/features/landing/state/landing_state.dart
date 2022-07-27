@@ -8,6 +8,7 @@ class LandingState {
   final List<OfferBannerState> offerBanners;
   final List<int> nos;
   final CategoriesState? categories;
+  final List<Menu> menu;
 
   LandingState({
     required this.pageTitle,
@@ -17,6 +18,7 @@ class LandingState {
     this.offerBanners = const [],
     this.nos = const [],
     this.categories,
+    this.menu = const [],
   });
 
   LandingState copyWith({
@@ -27,6 +29,7 @@ class LandingState {
     List<OfferBannerState>? offerBanners,
     List<int>? nos,
     CategoriesState? categories,
+    List<Menu>? menu,
   }) =>
       LandingState(
         pageTitle: pageTitle ?? this.pageTitle,
@@ -36,6 +39,7 @@ class LandingState {
         offerBanners: offerBanners ?? this.offerBanners,
         nos: nos ?? this.nos,
         categories: categories ?? this.categories,
+        menu: menu ?? this.menu,
       );
 }
 
