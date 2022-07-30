@@ -85,6 +85,14 @@ Widget _getIcon(
         size: attributes.iconSize,
       );
 
+    case HexAppBarButtons.cart:
+      return Icon(
+        Icons.shopping_cart_outlined,
+        key: const Key('HexAppBarButtons_CartIcon'),
+        color: color,
+        size: attributes.iconSize,
+      );
+
     default:
       return Container(
         key: const Key('HexAppBarButtons_NullContainer'),

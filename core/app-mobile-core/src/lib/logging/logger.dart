@@ -128,7 +128,7 @@ class HexLogger {
           _analytics = DIContainer.container.resolve<IAnalytics>();
         } on Exception catch (exception) {
           // do nothing
-          HexLogger.logDebug('could not find analytics object');
+          HexLogger.logDebug('could not find analytics object, $exception');
         }
       }
 

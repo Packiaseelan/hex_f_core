@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 import 'package:core/app/hex_material_app.dart';
@@ -35,16 +36,23 @@ class _MyAppState extends State<MyApp> {
         }
       },
       child: OverlaySupport.global(
-        child: HexMaterialApp(
-          key: const Key('HexAppMaterialApp'),
-          title: widget.appTitle,
-          theme: widget.theme,
-          home: widget.homeWidget,
-          onGenerateRoute: NavigationManager.getRoute,
+        child: ScreenUtilInit(
+          designSize: const Size(320, 690),
+          minTextAdapt: true,
+          splitScreenMode: true,
           builder: (context, child) {
-            return MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-              child: Directionality(textDirection: TextDirection.ltr, child: child ?? Container()),
+            return HexMaterialApp(
+              key: const Key('HexAppMaterialApp'),
+              title: widget.appTitle,
+              theme: widget.theme,
+              home: widget.homeWidget,
+              onGenerateRoute: NavigationManager.getRoute,
+              builder: (context, child) {
+                return MediaQuery(
+                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+                  child: Directionality(textDirection: TextDirection.ltr, child: child ?? Container()),
+                );
+              },
             );
           },
         ),

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:core/logging/logger.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -110,6 +111,7 @@ class HexStyleData {
   double? minimumSize;
   double? borderRadius;
   int? fontWeight;
+  double? letterSpacing;
 
   HexStyleData({
     this.color,
@@ -120,6 +122,7 @@ class HexStyleData {
     this.minimumSize,
     this.borderRadius,
     this.fontWeight,
+    this.letterSpacing,
   });
 
   factory HexStyleData.fromJson(Map<String, dynamic> json) => _$HexStyleDataFromJson(json);
@@ -283,6 +286,7 @@ class HexTheme {
         fontFamily: styleData.fontFamily,
         fontSize: styleData.fontSize,
         fontWeight: FontWeight.values[fontWeightIndex],
+        letterSpacing: styleData.letterSpacing,
       );
     }
 
@@ -322,7 +326,9 @@ class HexTheme {
     try {
       defaultThemeData =
           themeData.screens.firstWhere((element) => element.screenName.toLowerCase().compareTo('default') == 0);
-    } on StateError {}
+    } on StateError catch (error) {
+      HexLogger.logDebug(error.message);
+    }
   }
 
   ElevatedButtonThemeData _buildElevatedButtonTheme(HexStyleData? elevatedButtonTheme) {
@@ -392,7 +398,9 @@ class HexTheme {
     try {
       screenThemeData = themeData.screens
           .firstWhere((element) => element.screenName.toLowerCase().compareTo(screenName!.toLowerCase()) == 0);
-    } on StateError {}
+    } on StateError catch (error) {
+      HexLogger.logDebug(error.message);
+    }
 
     return ThemeData(
       primaryColor: screenThemeData?.primaryColor?.toColor() ?? defaultThemeData?.primaryColor,

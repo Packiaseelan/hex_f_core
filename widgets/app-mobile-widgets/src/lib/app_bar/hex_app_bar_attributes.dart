@@ -52,4 +52,5 @@ enum HexAppBarButtons {
   more,
   signup,
   info,
+  cart,
 }
