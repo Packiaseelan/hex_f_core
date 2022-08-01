@@ -4,7 +4,7 @@ import 'package:widget_library/hex_text/hex_text.dart';
 import 'package:widget_library/image/hex_image_widget.dart';
 
 class _Constants {
-  static const iconSize = 14.0;
+  static const borderRadius = 10.0;
   static const iconHorizontalSpacing = 4.0;
 }
 
@@ -16,6 +16,7 @@ class IconTextButtonAttribute {
   final Function onPressed;
   final IconPosition position;
   final EdgeInsets padding;
+  final double borderRadius;
 
   IconTextButtonAttribute({
     required this.icon,
@@ -23,6 +24,7 @@ class IconTextButtonAttribute {
     required this.onPressed,
     this.position = IconPosition.trailing,
     this.padding = EdgeInsets.zero,
+    this.borderRadius = _Constants.borderRadius,
   });
 }
 
@@ -33,8 +35,11 @@ class IconTextButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => attribute.onPressed(),
+    return RawMaterialButton(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(attribute.borderRadius),
+      ),
+      onPressed: () => attribute.onPressed(),
       child: Padding(
         padding: attribute.padding,
         child: Row(
@@ -54,11 +59,7 @@ class IconTextButtonWidget extends StatelessWidget {
         left: attribute.position == IconPosition.trailing ? _Constants.iconHorizontalSpacing : 0,
         right: attribute.position == IconPosition.leading ? _Constants.iconHorizontalSpacing : 0,
       ),
-      child: SizedBox(
-        height: _Constants.iconSize,
-        width: _Constants.iconSize,
-        child: HexImage(attribute.icon),
-      ),
+      child: HexImage(attribute.icon),
     );
   }
 }

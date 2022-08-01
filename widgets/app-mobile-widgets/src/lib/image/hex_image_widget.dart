@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 
-enum ImageSource { asset, network }
+enum ImageSource { asset, network, icon }
 
 class HexImageModel {
   final String imagePath;
@@ -13,6 +13,8 @@ class HexImageModel {
   final BoxFit? boxFit;
   final AlignmentGeometry? alignment;
   final ImageSource imageSource;
+  final IconData? icon;
+  final double? iconSize;
 
   HexImageModel({
     required this.imagePath,
@@ -23,6 +25,8 @@ class HexImageModel {
     this.boxFit,
     this.alignment,
     this.imageSource = ImageSource.asset,
+    this.icon,
+    this.iconSize,
   });
 
   HexImageModel.asset({
@@ -33,7 +37,8 @@ class HexImageModel {
     this.color,
     this.boxFit,
     this.alignment,
-  }) : imageSource = ImageSource.asset;
+  })  : imageSource = ImageSource.asset,
+        icon = null, iconSize = null;
 
   HexImageModel.network({
     required this.imagePath,
@@ -43,7 +48,20 @@ class HexImageModel {
     this.color,
     this.boxFit,
     this.alignment,
-  }) : imageSource = ImageSource.network;
+  })  : imageSource = ImageSource.network,
+        icon = null, iconSize = null;
+
+  HexImageModel.icon({
+    required this.icon,
+    this.iconSize,
+    this.width,
+    this.padding = EdgeInsets.zero,
+    this.height,
+    this.color,
+    this.boxFit,
+    this.alignment,
+  })  : imagePath = '',
+        imageSource = ImageSource.icon;
 }
 
 class HexImage extends StatelessWidget {
@@ -55,15 +73,27 @@ class HexImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: imageModel.padding,
-      child: _Image(
-        imageModel.imagePath,
-        width: imageModel.width,
-        height: imageModel.height,
-        color: imageModel.color,
-        boxFit: imageModel.boxFit,
-        alignment: imageModel.alignment,
-        imageSource: imageModel.imageSource,
-      ),
+      child: imageModel.imageSource == ImageSource.icon ? _buildIcon() : _buildImage(),
+    );
+  }
+
+  Widget _buildImage() {
+    return _Image(
+      imageModel.imagePath,
+      width: imageModel.width,
+      height: imageModel.height,
+      color: imageModel.color,
+      boxFit: imageModel.boxFit,
+      alignment: imageModel.alignment,
+      imageSource: imageModel.imageSource,
+    );
+  }
+
+  Widget _buildIcon() {
+    return Icon(
+      imageModel.icon!,
+      color: imageModel.color,
+      size: imageModel.iconSize,
     );
   }
 }
