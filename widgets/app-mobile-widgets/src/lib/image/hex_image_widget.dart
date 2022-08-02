@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 enum ImageSource { asset, network, icon }
@@ -93,7 +93,7 @@ class HexImage extends StatelessWidget {
     return Icon(
       imageModel.icon!,
       color: imageModel.color,
-      size: imageModel.iconSize,
+      size: imageModel.iconSize?.sp,
     );
   }
 }
@@ -160,7 +160,7 @@ class _Image extends StatelessWidget {
         if (event == null) {
           return child;
         }
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }

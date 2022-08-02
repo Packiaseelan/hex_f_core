@@ -21,9 +21,11 @@ class ImagesView extends StatelessWidget {
 
   Widget _builder(BuildContext context, ImagesState state, ImagesCoordinator coordinator) {
     return HexScaffold(
-      appBarAttributes:
-          HexAppBarAttributes(left: [HexAppBarButtonAttributes(type: HexAppBarButtons.back)], title: 'Images'),
-      body: ImagesViewBaseWidget(
+      appBarAttributes: HexAppBarAttributes(
+        left: [HexAppBarButtonAttributes(type: HexAppBarButtons.back)],
+        title: 'Images',
+      ),
+      builder: (context) => ImagesViewBaseWidget(
         attribute: _createAttribute(state),
       ),
     );

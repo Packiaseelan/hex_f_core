@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:widget_library/app_bar/hex_app_bar.dart';
+import 'package:widget_library/theme/builder/theme_builder.dart';
 import 'package:widget_library/theme/hex_theme.dart';
 
 enum HexBrightness { dark, light }
@@ -12,7 +13,7 @@ class HexScaffold extends StatelessWidget {
   final HexBrightness themeBrightness;
   final PreferredSizeWidget? Function(BuildContext)? appBarBuilder;
   final bool resizeToAvoidBottomInset;
-  final Widget body;
+  final WidgetBuilder builder;
   final Widget? bottomNavigationBar;
   final bool extendedBodyClip;
   final bool extendBodyBehindAppBar;
@@ -25,7 +26,7 @@ class HexScaffold extends StatelessWidget {
     this.resizeToAvoidBottomInset = true,
     this.extendedBodyClip = false,
     this.extendBodyBehindAppBar = false,
-    required this.body,
+    required this.builder,
     this.bottomNavigationBar,
     this.themeBrightness = HexBrightness.light,
   }) : super(key: key);
@@ -33,10 +34,8 @@ class HexScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = HexTheme().themeFor(themeName);
-    return Theme(
-      data: theme,
-      key: const Key('Hex_Scaffold_Theme'),
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
+    return ThemeBuilder(themeName: themeName, builder: (context) {
+      return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
           // For Android.
           // Use [light] for white status bar and [dark] for black status bar.
@@ -48,13 +47,13 @@ class HexScaffold extends StatelessWidget {
         child: Scaffold(
           resizeToAvoidBottomInset: resizeToAvoidBottomInset,
           appBar: _buildAppBar(context, theme),
-          body: body,
+          body: Builder(builder: builder),
           bottomNavigationBar: bottomNavigationBar,
           extendBody: extendedBodyClip,
           extendBodyBehindAppBar: extendBodyBehindAppBar,
         ),
-      ),
-    );
+      );
+    });
   }
 
   PreferredSizeWidget? _buildAppBar(BuildContext context, ThemeData theme) {

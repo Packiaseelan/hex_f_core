@@ -21,7 +21,7 @@ class SplashView extends StatelessWidget {
 
   Widget _builder(BuildContext context, SplashState state, SplashCoordinator coordinator) {
     return HexScaffold(
-      body: SplashViewBaseWidget(attribute: _createAttribute(state)),
+      builder: (context) => SplashViewBaseWidget(attribute: _createAttribute(state)),
     );
   }
 

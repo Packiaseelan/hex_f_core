@@ -22,7 +22,7 @@ class LandingView extends StatelessWidget {
   Widget _builder(BuildContext context, LandingState state, LandingCoordinator coordinator) {
     return HexScaffold(
       appBarBuilder: (context) => _appBarBuilder(context, state),
-      body: LandingViewBaseWidget(
+      builder: (context) => LandingViewBaseWidget(
         attribute: _createAttribute(state, coordinator),
       ),
     );
