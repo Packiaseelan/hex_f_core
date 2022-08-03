@@ -15,6 +15,7 @@ class HexScaffold extends StatelessWidget {
   final bool resizeToAvoidBottomInset;
   final WidgetBuilder builder;
   final Widget? bottomNavigationBar;
+  final Widget? bottomChild;
   final bool extendedBodyClip;
   final bool extendBodyBehindAppBar;
 
@@ -28,6 +29,7 @@ class HexScaffold extends StatelessWidget {
     this.extendBodyBehindAppBar = false,
     required this.builder,
     this.bottomNavigationBar,
+    this.bottomChild,
     this.themeBrightness = HexBrightness.light,
   }) : super(key: key);
 
@@ -47,7 +49,12 @@ class HexScaffold extends StatelessWidget {
         child: Scaffold(
           resizeToAvoidBottomInset: resizeToAvoidBottomInset,
           appBar: _buildAppBar(context, theme),
-          body: Builder(builder: builder),
+          body: Column(
+            children: [
+                  Expanded(child: Builder(builder: builder)),
+                  if (bottomChild != null) bottomChild!,
+                ],
+          ),
           bottomNavigationBar: bottomNavigationBar,
           extendBody: extendedBodyClip,
           extendBodyBehindAppBar: extendBodyBehindAppBar,

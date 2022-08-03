@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+class _Constants {
+  static const squareSize = 30.0;
+  static const defaultIconSize = 16.0;
+}
+
 class IconButtonAttribute {
   final Widget child;
   final Function() onPressed;
@@ -12,9 +17,13 @@ class IconButtonAttribute {
 
   IconButtonAttribute.icon({
     required IconData icon,
-    double size = 16,
+    double size = _Constants.defaultIconSize,
     required this.onPressed,
-  }) : child = Icon(icon, size: size, color: Colors.white,);
+  }) : child = Icon(
+          icon,
+          size: size,
+          color: Colors.white,
+        );
 }
 
 class IconButtonWidget extends StatelessWidget {
@@ -24,15 +33,19 @@ class IconButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: Colors.green
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(6.0),
-        child: attribute.child,
+    return SizedBox(
+      width: _Constants.squareSize,
+      height: _Constants.squareSize,
+      child: RawMaterialButton(
+        fillColor: Colors.green,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+        onPressed: () => attribute.onPressed(),
+        child: Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: attribute.child,
+        ),
       ),
     );
   }

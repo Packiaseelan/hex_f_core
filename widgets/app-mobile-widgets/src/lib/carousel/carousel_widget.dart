@@ -11,6 +11,7 @@ class CarouselAttribute {
   final bool enableInfiniteScroll;
   final double aspectRatio;
   final IndicatorAttribute? indicator;
+  final double viewportFraction;
 
   CarouselAttribute({
     this.children = const [],
@@ -20,6 +21,7 @@ class CarouselAttribute {
     this.enableInfiniteScroll = false,
     this.aspectRatio = 16 / 9,
     this.indicator,
+    this.viewportFraction = 0.8
   });
 }
 
@@ -34,12 +36,6 @@ class CarouselWidget extends StatefulWidget {
 
 class _CarouselWidgetState extends State<CarouselWidget> {
   int _currentIndex = 0;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +56,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                         enableInfiniteScroll: widget.attribute.enableInfiniteScroll,
                         aspectRatio: widget.attribute.aspectRatio,
                         onPageChanged: _onPageChanged,
+                        viewportFraction: widget.attribute.viewportFraction,
                       ),
                       items: widget.attribute.children,
                     ),
