@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'carousel_widget.dart';
 
 class IndicatorAttribute {
   final Color defaultColor;
@@ -11,8 +11,8 @@ class IndicatorAttribute {
   IndicatorAttribute({
     this.defaultColor = Colors.black12,
     this.currentColor = Colors.black,
-    this.defaultSize = 10,
-    this.currentsize = 12,
+    this.defaultSize = _Constants.defaultIndicatorSize,
+    this.currentsize = _Constants.currentIndicatorSize,
     this.isOverlay = false,
     this.border,
   });

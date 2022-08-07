@@ -1,28 +1,39 @@
 import 'package:flutter/material.dart';
 
-import 'package:widget_library/carousel/carousel_indicator.dart';
+part 'carousel_indicator.dart';
+
+class _Constants {
+  static const defaultPadding = 18.0;
+  static const defaultSpacing = 10.0;
+  static const defaultViewport = 0.8;
+  static const defaultHeightFactor = 0.2;
+  static const defaultIndicatorSize = 6.0;
+  static const currentIndicatorSize = 7.0;
+
+}
 
 class CarouselAttribute {
   final List<Widget> children;
   final double? width;
   final double? height;
-  final bool enableInfiniteScroll;
-  final double aspectRatio;
   final IndicatorAttribute? indicator;
   final double viewportFraction;
+  final double padding;
+  final double spacing;
 
   bool get showIndicator {
     return indicator != null && children.length > 1;
   }
 
-  CarouselAttribute(
-      {this.children = const [],
-      this.width,
-      this.height,
-      this.enableInfiniteScroll = false,
-      this.aspectRatio = 16 / 9,
-      this.indicator,
-      this.viewportFraction = 0.8});
+  CarouselAttribute({
+    this.children = const [],
+    this.width,
+    this.height,
+    this.indicator,
+    this.viewportFraction = _Constants.defaultViewport,
+    this.padding = _Constants.defaultPadding,
+    this.spacing = _Constants.defaultSpacing,
+  });
 }
 
 class CarouselWidget extends StatefulWidget {
@@ -35,14 +46,22 @@ class CarouselWidget extends StatefulWidget {
 }
 
 class _CarouselWidgetState extends State<CarouselWidget> {
-  final PageController ctrl = PageController(viewportFraction: 0.7);
+  late PageController ctrl;
   int _currentIndex = 0;
+  int childrenCount = 0;
+
+  @override
+  void initState() {
+    ctrl = PageController(viewportFraction: widget.attribute.viewportFraction);
+    childrenCount = widget.attribute.children.length;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: widget.attribute.height ?? size.height * 0.2,
+      height: widget.attribute.height ?? size.height * _Constants.defaultHeightFactor,
       child: Column(
         children: [
           Expanded(
@@ -52,11 +71,11 @@ class _CarouselWidgetState extends State<CarouselWidget> {
               itemCount: widget.attribute.children.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.only(left: index == 0 ? 18 : 10, right: index == 3 ? 18 : 0),
-                  child: AspectRatio(
-                    aspectRatio: 1.5,
-                    child: widget.attribute.children[index],
+                  padding: EdgeInsets.only(
+                    left: index == 0 ? widget.attribute.padding : widget.attribute.spacing,
+                    right: index == childrenCount - 1 ? widget.attribute.padding : 0,
                   ),
+                  child: widget.attribute.children[index],
                 );
               },
               onPageChanged: _onPageChange,
